@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Services_list">
+        <item>Digital Marketing</item>
+        <item>Brand Identity</item>
+        <item>PR Strategy and Marketing</item>
+        <item>SEM (Search Engine Marketing)</item>
+        <item>SMM (Social Media Management)</item>
+        <item>SEO (Search Engine Optimization)</item>
+        <item>Web Development</item>
+        <item>UI &amp; UX Design</item>
+        <item>ATL &amp; BTL Marketing</item>
+    </array>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#ffbb86fc</color>
+    <color name="purple_500">#ff6200ee</color>
+    <color name="purple_700">#f81707</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="red">#f81707</color>
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="teal_200">#ff03dac5</color>
+    <color name="teal_700">#ff018786</color>
+    <color name="tooltip_background_dark">#e6616161</color>
+    <color name="tooltip_background_light">#e6ffffff</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="gradient_end_color">#f44336</color>
+    <color name="gradient_start_color">#f81707</color>
+    <color name="green">#00bc36</color>
+    <color name="about_screen">#e20248</color>
+</resources>
