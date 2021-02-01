@@ -17,15 +17,15 @@ public class PortfolioAdapter extends PagerAdapter {
     Context mContext;
     List<PortfolioModel> mListPortfolio;
 
-    public PortfolioAdapter(Context mContext2, List<PortfolioModel> mListPortfolio2) {
-        this.mContext = mContext2;
-        this.mListPortfolio = mListPortfolio2;
+    public PortfolioAdapter(Context mContext, List<PortfolioModel> mListPortfolio) {
+        this.mContext = mContext;
+        this.mListPortfolio = mListPortfolio;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup container, int position) {
-        View layoutServicesScreen = ((LayoutInflater) this.mContext.getSystemService("layout_inflater")).inflate(R.layout.layout_portfolio_screen, (ViewGroup) null);
-        ((ImageView) layoutServicesScreen.findViewById(R.id.intro_img)).setImageResource(this.mListPortfolio.get(position).getScreenImg());
+        View layoutServicesScreen = ((LayoutInflater) mContext.getSystemService("layout_inflater")).inflate(R.layout.layout_portfolio_screen, (ViewGroup) null);
+        ((ImageView) layoutServicesScreen.findViewById(R.id.intro_img)).setImageResource(mListPortfolio.get(position).getScreenImg());
         container.addView(layoutServicesScreen);
         return layoutServicesScreen;
     }

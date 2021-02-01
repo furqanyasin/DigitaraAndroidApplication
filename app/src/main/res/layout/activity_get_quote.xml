@@ -37,7 +37,9 @@
                 android:layout_marginRight="8dp"
                 android:padding="4dp"
                 app:boxBackgroundColor="#fffcf1"
-                app:boxBackgroundMode="outline">
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/red"
+                android:textColorHint="@color/gray">
 
                 <EditText
                     android:id="@+id/et_name"
@@ -58,7 +60,9 @@
                 android:layout_marginRight="8dp"
                 android:padding="4dp"
                 app:boxBackgroundColor="#fffcf1"
-                app:boxBackgroundMode="outline">
+                app:boxBackgroundMode="outline"
+                android:textColorHint="@color/gray"
+                app:boxStrokeColor="@color/red">
 
                 <EditText
                     android:id="@+id/et_email"
@@ -80,7 +84,9 @@
                 android:layout_marginRight="8dp"
                 android:padding="4dp"
                 app:boxBackgroundColor="#fffcf1"
-                app:boxBackgroundMode="outline">
+                app:boxBackgroundMode="outline"
+                android:textColorHint="@color/gray"
+                app:boxStrokeColor="@color/red">
 
                 <EditText
                     android:id="@+id/et_phone_number"
@@ -103,6 +109,8 @@
                 android:layout_marginRight="8dp"
                 android:padding="4dp"
                 app:boxBackgroundColor="#fffcf1"
+                app:boxStrokeColor="@color/red"
+                android:textColorHint="@color/gray"
                 app:boxBackgroundMode="outline">
 
                 <AutoCompleteTextView
@@ -111,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:completionThreshold="1"
                     android:hint="Select a Service"
+                    android:textColor="@android:color/black"
                     android:text="" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,6 +131,8 @@
                 android:layout_marginRight="8dp"
                 android:padding="4dp"
                 app:boxBackgroundColor="#fffcf1"
+                app:boxStrokeColor="@color/red"
+                android:textColorHint="@color/gray"
                 app:boxBackgroundMode="outline">
 
                 <EditText

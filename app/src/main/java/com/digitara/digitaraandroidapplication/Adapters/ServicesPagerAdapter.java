@@ -18,12 +18,12 @@ public class ServicesPagerAdapter extends PagerAdapter {
     Context mContext;
     List<ServicesModel> mListScreen;
 
-    public ServicesPagerAdapter(Context mContext2, List<ServicesModel> mListScreen2) {
-        this.mContext = mContext2;
-        this.mListScreen = mListScreen2;
+    public ServicesPagerAdapter(Context mContext, List<ServicesModel> mListScreen) {
+        this.mContext = mContext;
+        this.mListScreen = mListScreen;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View layoutServicesScreen = ((LayoutInflater) this.mContext.getSystemService("layout_inflater")).inflate(R.layout.layout_services_screen, (ViewGroup) null);
         ((TextView) layoutServicesScreen.findViewById(R.id.intro_title)).setText(this.mListScreen.get(position).getTitle());
@@ -33,17 +33,17 @@ public class ServicesPagerAdapter extends PagerAdapter {
         return layoutServicesScreen;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public int getCount() {
         return this.mListScreen.size();
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == ((ConstraintLayout) object);
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((View) object);
     }

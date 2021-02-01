@@ -30,44 +30,40 @@ public class GetQuoteActivity extends AppCompatActivity implements AdapterView.O
     TextInputLayout inputLayoutPhoneNumber;
     Spinner spinner;
 
-    /* access modifiers changed from: protected */
-    @Override // androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_quote);
-        this.etName = (EditText) findViewById(R.id.et_name);
-        this.etEmail = (EditText) findViewById(R.id.et_email);
-        this.etPhoneNumber = (EditText) findViewById(R.id.et_phone_number);
-        this.etComment = (EditText) findViewById(R.id.et_comment);
-        AutoCompleteTextView autoCompleteTextView2 = (AutoCompleteTextView) findViewById(R.id.actv);
-        this.autoCompleteTextView = autoCompleteTextView2;
-        autoCompleteTextView2.setOnItemSelectedListener(this);
-        this.inputLayoutName = (TextInputLayout) findViewById(R.id.inputLayoutName);
-        this.inputLayoutEmail = (TextInputLayout) findViewById(R.id.inputLayoutEmail);
-        this.inputLayoutPhoneNumber = (TextInputLayout) findViewById(R.id.inputLayoutPhone);
-        this.inputLayoutComment = (TextInputLayout) findViewById(R.id.inputLayoutComment);
-        MaterialButton materialButton = (MaterialButton) findViewById(R.id.btn_submit);
-        this.btnSubmit = materialButton;
-        materialButton.setOnClickListener(new View.OnClickListener() {
-            /* class com.digitara.digitara.Activities.$$Lambda$GetQuoteActivity$d5kv3D3WuFp5oXLnMylypZskxwY */
+        etName = (EditText) findViewById(R.id.et_name);
+        etEmail = (EditText) findViewById(R.id.et_email);
+        etPhoneNumber = (EditText) findViewById(R.id.et_phone_number);
+        etComment = (EditText) findViewById(R.id.et_comment);
 
-            public final void onClick(View view) {
-                GetQuoteActivity.this.lambda$onCreate$0$GetQuoteActivity(view);
-            }
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.actv);
+        autoCompleteTextView.setOnItemSelectedListener(this);
+        inputLayoutName = (TextInputLayout) findViewById(R.id.inputLayoutName);
+        inputLayoutEmail = (TextInputLayout) findViewById(R.id.inputLayoutEmail);
+        inputLayoutPhoneNumber = (TextInputLayout) findViewById(R.id.inputLayoutPhone);
+        inputLayoutComment = (TextInputLayout) findViewById(R.id.inputLayoutComment);
+        btnSubmit = (MaterialButton) findViewById(R.id.btn_submit);
+        btnSubmit.setOnClickListener(v -> {
+
+            checkSendEmail();
+
         });
-        this.autoCompleteTextView.setAdapter(new ArrayAdapter<>(this, (int) R.layout.custom_list_item, (int) R.id.text_view_list_item, getResources().getStringArray(R.array.Services_list)));
+
+
+       autoCompleteTextView.setAdapter(new ArrayAdapter<String>(this,
+               android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Services_list)));
+
     }
 
-    public /* synthetic */ void lambda$onCreate$0$GetQuoteActivity(View view) {
-        checkSendEmail();
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
+    @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-        Toast.makeText(getApplicationContext(), "Selected : " + ((String) adapterView.getItemAtPosition(position)), 0).show();
+        Toast.makeText(getApplicationContext(), "Selected : " + ((String) adapterView.getItemAtPosition(position)), Toast.LENGTH_SHORT).show();
     }
 
-    @Override // android.widget.AdapterView.OnItemSelectedListener
+    @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
 
@@ -82,14 +78,13 @@ public class GetQuoteActivity extends AppCompatActivity implements AdapterView.O
         dialog.setMessage("Please wait");
         dialog.show();
         new Thread(new Runnable() {
-            /* class com.digitara.digitara.Activities.GetQuoteActivity.AnonymousClass1 */
 
             public void run() {
                 try {
                     new GMailSender("inquirydigitara.pk@gmail.com", "Kuki@pak1122").sendMail(spinnerSubject, "Name: " + Name + "\nEmail: " + Email + "\nPhone : " + PhoneNumber + "\nServices: " + spinnerSubject + "\nComment: " + Comment, "sender", "hello@digitara.pk");
                     dialog.dismiss();
                     GetQuoteActivity.this.finish();
-                    Toast.makeText(GetQuoteActivity.this, "Email Send Successfully", 0).show();
+                    Toast.makeText(GetQuoteActivity.this, "Email Send Successfully", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     Log.e("mylog", "Error: " + e.getMessage());
                 }

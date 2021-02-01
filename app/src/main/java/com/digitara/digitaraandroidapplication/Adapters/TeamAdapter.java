@@ -18,31 +18,31 @@ public class TeamAdapter extends PagerAdapter {
     Context mContext;
     List<TeamModel> mListTeam;
 
-    public TeamAdapter(Context mContext2, List<TeamModel> mListTeam2) {
-        this.mContext = mContext2;
-        this.mListTeam = mListTeam2;
+    public TeamAdapter(Context mContext, List<TeamModel> mListTeam) {
+        this.mContext = mContext;
+        this.mListTeam = mListTeam;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup container, int position) {
-        View layoutScreen = ((LayoutInflater) this.mContext.getSystemService("layout_inflater")).inflate(R.layout.team_layout, (ViewGroup) null);
-        ((TextView) layoutScreen.findViewById(R.id.tv_description)).setText(this.mListTeam.get(position).getDescription());
-        ((ImageView) layoutScreen.findViewById(R.id.img_team)).setImageResource(this.mListTeam.get(position).getProfileImg());
+        View layoutScreen = ((LayoutInflater) mContext.getSystemService("layout_inflater")).inflate(R.layout.team_layout, (ViewGroup) null);
+        ((TextView) layoutScreen.findViewById(R.id.tv_description)).setText(mListTeam.get(position).getDescription());
+        ((ImageView) layoutScreen.findViewById(R.id.img_team)).setImageResource(mListTeam.get(position).getProfileImg());
         container.addView(layoutScreen);
         return layoutScreen;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public int getCount() {
         return this.mListTeam.size();
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == ((ConstraintLayout) object);
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((View) object);
     }

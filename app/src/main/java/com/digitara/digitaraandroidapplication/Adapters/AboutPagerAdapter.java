@@ -18,27 +18,28 @@ public class AboutPagerAdapter extends PagerAdapter {
     Context mContext;
     List<AboutModel> mListScreen;
 
-    public AboutPagerAdapter(Context mContext2, List<AboutModel> mListScreen2) {
-        this.mContext = mContext2;
-        this.mListScreen = mListScreen2;
+
+    public AboutPagerAdapter(Context mContext, List<AboutModel> mListScreen) {
+        this.mContext = mContext;
+        this.mListScreen = mListScreen;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View layoutAboutScreen = ((LayoutInflater) this.mContext.getSystemService("layout_inflater")).inflate(R.layout.layout_about_screen, (ViewGroup) null);
-        ((TextView) layoutAboutScreen.findViewById(R.id.intro_title)).setText(this.mListScreen.get(position).getTitle());
-        ((TextView) layoutAboutScreen.findViewById(R.id.intro_description)).setText(this.mListScreen.get(position).getDescription());
-        ((ImageView) layoutAboutScreen.findViewById(R.id.intro_img)).setImageResource(this.mListScreen.get(position).getScreenImg());
+        View layoutAboutScreen = ((LayoutInflater) mContext.getSystemService(mContext.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.layout_about_screen, (ViewGroup) null);
+        ((TextView) layoutAboutScreen.findViewById(R.id.intro_title)).setText(mListScreen.get(position).getTitle());
+        ((TextView) layoutAboutScreen.findViewById(R.id.intro_description)).setText(mListScreen.get(position).getDescription());
+        ((ImageView) layoutAboutScreen.findViewById(R.id.intro_img)).setImageResource(mListScreen.get(position).getScreenImg());
         container.addView(layoutAboutScreen);
         return layoutAboutScreen;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public int getCount() {
         return this.mListScreen.size();
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == ((ConstraintLayout) object);
     }

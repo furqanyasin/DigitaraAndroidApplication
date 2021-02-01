@@ -20,53 +20,48 @@ public class LocationFragment extends Fragment {
     private GoogleMap googleMap;
     MapView mMapView;
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_location, container, false);
         MapView mapView = (MapView) root.findViewById(R.id.map);
-        this.mMapView = mapView;
+        mMapView = mapView;
         mapView.onCreate(savedInstanceState);
-        this.mMapView.onResume();
+        mMapView.onResume();
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.mMapView.getMapAsync(new OnMapReadyCallback() {
-            /* class com.digitara.digitara.ui.LocationFragment.AnonymousClass1 */
-
-            @Override // com.google.android.gms.maps.OnMapReadyCallback
-            public void onMapReady(GoogleMap mMap) {
-                LocationFragment.this.googleMap = mMap;
-                LatLng sydney = new LatLng(31.492723d, 74.336928d);
-                LocationFragment.this.googleMap.addMarker(new MarkerOptions().position(sydney).title("Digitara").snippet("Transforming Digitally"));
-                LocationFragment.this.googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(sydney).zoom(12.0f).build()));
-            }
+        mMapView.getMapAsync(mMap -> {
+            googleMap = mMap;
+            LatLng digitara = new LatLng(31.492723, 74.336928);
+            googleMap.addMarker(new MarkerOptions().position(digitara).title("Digitara").snippet("Transforming Digitally"));
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(digitara).zoom(12.0f).build()));
         });
         return root;
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public void onResume() {
         super.onResume();
-        this.mMapView.onResume();
+        mMapView.onResume();
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public void onPause() {
         super.onPause();
-        this.mMapView.onPause();
+        mMapView.onPause();
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public void onDestroy() {
         super.onDestroy();
-        this.mMapView.onDestroy();
+        mMapView.onDestroy();
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override
     public void onLowMemory() {
         super.onLowMemory();
-        this.mMapView.onLowMemory();
+        mMapView.onLowMemory();
     }
 }

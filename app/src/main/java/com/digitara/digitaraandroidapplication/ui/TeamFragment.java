@@ -29,9 +29,9 @@ public class TeamFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_team, container, false);
-        this.tabIndicator = (TabLayout) root.findViewById(R.id.tab_indicator_team);
-        this.cvNext = (MaterialCardView) root.findViewById(R.id.cv_next);
-        this.teamPager = (ViewPager) root.findViewById(R.id.team_viewpager);
+        tabIndicator = (TabLayout) root.findViewById(R.id.tab_indicator_team);
+        cvNext = (MaterialCardView) root.findViewById(R.id.cv_next);
+        teamPager = (ViewPager) root.findViewById(R.id.team_viewpager);
         TeamFunction();
         return root;
     }
@@ -56,21 +56,17 @@ public class TeamFragment extends Fragment {
         mListTeam.add(new TeamModel(null, R.drawable.team_img_15));
         mListTeam.add(new TeamModel(null, R.drawable.team_img_16));
         mListTeam.add(new TeamModel(null, R.drawable.team_img_17));
-        TeamAdapter teamAdapter2 = new TeamAdapter(getContext(), mListTeam);
-        this.teamAdapter = teamAdapter2;
-        this.teamPager.setAdapter(teamAdapter2);
-        this.cvNext.setOnClickListener(view -> {
-            teamFunction(mListTeam,view);
+        teamAdapter = new TeamAdapter(getContext(), mListTeam);
+        teamPager.setAdapter(teamAdapter);
+        cvNext.setOnClickListener(view -> {
+            int currentItem = this.teamPager.getCurrentItem();
+            position = currentItem;
+            if (currentItem < mListTeam.size()) {
+                int i = position + 1;
+                position = i;
+                teamPager.setCurrentItem(i);
+            }
         });
     }
 
-    public void teamFunction(List mListTeam, View view) {
-        int currentItem = this.teamPager.getCurrentItem();
-        this.position = currentItem;
-        if (currentItem < mListTeam.size()) {
-            int i = this.position + 1;
-            this.position = i;
-            this.teamPager.setCurrentItem(i);
-        }
-    }
 }
