@@ -22,4 +22,5 @@
     <string name="menu_portfolio">Portfolio</string>
     <string name="menu_services">Services</string>
     <string name="menu_team">Our Team</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

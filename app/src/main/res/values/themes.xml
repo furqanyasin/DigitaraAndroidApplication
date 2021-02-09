@@ -23,8 +23,6 @@
     </style>
 
 
-    -
-
     <style name="Theme.Digitara" parent="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
@@ -49,8 +47,6 @@
 
     <style name="Theme.Digitara.AppBarOverlay" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar"></style>
 
-
-    -
 
     <style name="Theme.Digitara.NoActionBar" parent="@style/Theme.Digitara">
 

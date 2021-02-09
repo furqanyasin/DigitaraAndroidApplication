@@ -142,6 +142,8 @@
                     android:baselineAligned="false"
                     android:gravity="start"
                     android:hint="Type your message"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 

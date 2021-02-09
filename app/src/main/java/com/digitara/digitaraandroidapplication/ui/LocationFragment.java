@@ -5,13 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-
 import com.digitara.digitaraandroidapplication.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -34,7 +32,7 @@ public class LocationFragment extends Fragment {
         }
         mMapView.getMapAsync(mMap -> {
             googleMap = mMap;
-            LatLng digitara = new LatLng(31.492723, 74.336928);
+            LatLng digitara = new LatLng(31.4936235, 74.3329508);
             googleMap.addMarker(new MarkerOptions().position(digitara).title("Digitara").snippet("Transforming Digitally"));
             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(digitara).zoom(12.0f).build()));
         });

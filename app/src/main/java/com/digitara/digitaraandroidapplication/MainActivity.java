@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_about, R.id.nav_services,
                 R.id.nav_team, R.id.nav_contact, R.id.nav_portfolio).setDrawerLayout((DrawerLayout)
                 findViewById(R.id.drawer_layout)).build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController((NavigationView) findViewById(R.id.nav_view), navController);
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.nav_host_fragment), mAppBarConfiguration) || super.onSupportNavigateUp();
+        return NavigationUI.navigateUp(Navigation.findNavController(this,
+                R.id.nav_host_fragment), mAppBarConfiguration) || super.onSupportNavigateUp();
     }
 }

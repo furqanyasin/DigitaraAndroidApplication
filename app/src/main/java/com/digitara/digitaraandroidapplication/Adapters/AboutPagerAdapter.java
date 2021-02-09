@@ -44,7 +44,7 @@ public class AboutPagerAdapter extends PagerAdapter {
         return view == ((ConstraintLayout) object);
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
+    @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         ((ViewPager) container).removeView((View) object);
     }
