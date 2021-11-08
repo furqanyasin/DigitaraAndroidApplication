@@ -139,7 +139,7 @@
                         android:layout_toRightOf="@+id/appImage"
                         android:paddingLeft="8dp"
                         android:paddingRight="16dp"
-                        android:text="345, Block M Gulberg III, Lahore, Punjab Pakistan"
+                        android:text="30-L Gulberg III, Lahore, Punjab Pakistan"
                         android:textColor="#000" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

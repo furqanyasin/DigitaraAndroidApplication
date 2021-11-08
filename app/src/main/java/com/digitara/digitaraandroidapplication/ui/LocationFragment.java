@@ -32,7 +32,7 @@ public class LocationFragment extends Fragment {
         }
         mMapView.getMapAsync(mMap -> {
             googleMap = mMap;
-            LatLng digitara = new LatLng(31.4936235, 74.3329508);
+            LatLng digitara = new LatLng(31.5003835, 74.3358507);
             googleMap.addMarker(new MarkerOptions().position(digitara).title("Digitara").snippet("Transforming Digitally"));
             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition.Builder().target(digitara).zoom(12.0f).build()));
         });

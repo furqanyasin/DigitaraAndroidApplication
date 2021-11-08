@@ -47,6 +47,34 @@
         android:orientation="vertical">
 
         <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/ripple_survey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="8dp"
+            app:mrl_rippleColor="#88ffffff"
+            app:mrl_rippleOverlay="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_survey"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="Client Satisfaction Survey"
+                android:textAllCaps="false"
+                android:textColor="#fffcf1"
+                android:textStyle="bold"
+                android:theme="@style/Theme.Digitara"
+                app:cornerRadius="5dp" />
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/ripple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,19 +86,20 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_submit"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="30dp"
                 android:text="Request a Quote"
                 android:textAllCaps="false"
                 android:textColor="#fffcf1"
                 android:textStyle="bold"
                 android:theme="@style/Theme.Digitara"
                 app:cornerRadius="5dp" />
+
         </com.balysv.materialripple.MaterialRippleLayout>
 
         <TextView
